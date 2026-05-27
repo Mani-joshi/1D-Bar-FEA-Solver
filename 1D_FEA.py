@@ -1,4 +1,3 @@
-import math
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -12,32 +11,28 @@ Area = 15
 Elasticity = 2000000000
 stiffness = Area*Elasticity/elem_length
 
+#creating stiffness matrix
 
 def formSM(elemnum):
-    # Define the size of the matrix
     n = elemnum+1
     
     matrix = np.zeros((n, n), dtype=int)
 
-#Loop through rows (i) and columns (j)
     for i in range(n):
         for j in range(n):
             
-            #Rule for the FIRST row (i == 0)
             if i == 0:
                 if j == 0:
                     matrix[i, j] = 1
                 elif j == 1:
                     matrix[i, j] = -1
                     
-            # Rule for the LAST row (i == n - 1)
             elif i == n - 1:
                 if j == n - 2:    # Represents column n-1
                     matrix[i, j] = -1
                 elif j == n - 1:  # Represents column n
                     matrix[i, j] = 1
                     
-            # Rules for all MIDDLE rows
             else:
                 if i == j:
                     matrix[i, j] = 2
@@ -46,7 +41,7 @@ def formSM(elemnum):
                 elif i - j == -1:
                     matrix[i, j] = -1
 
-    # Print the resulting matrix
+    # Print the resulting matrix with stiffness data
     return stiffness*matrix
 
 
@@ -79,17 +74,19 @@ SM_extracted = np.delete(SM_extracted_no_row, fixed_node-1, axis=1)
 
 deform = np.linalg.solve(SM_extracted, fextract)
 
+print(deform.shape)
+
 finaldeform = np.insert(deform, obj=fixed_node-1, values=0, axis=0)
 
 print(finaldeform)
 
 finalforce = stiffness_matrix @ finaldeform
 
-print(finalforce)
+#print(finalforce)
 
 
 
-#contour
+#contour Visualization
 
 
 x_coords = np.linspace(0, length, total_nodes)
