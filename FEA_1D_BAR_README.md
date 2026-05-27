@@ -52,7 +52,7 @@ Reaction forces are recovered by multiplying the full `[K]` by the complete disp
 
 ```bash
 pip install numpy matplotlib
-python fea_1d_bar.py
+python 1D_FEA.py
 ```
 
 **Inputs (interactive prompts):**
@@ -109,7 +109,7 @@ The contour plot renders the displacement field across the bar cross-section usi
 
 ```
 fea-1d-bar/
-├── fea_1d_bar.py      # Main solver
+├── 1D_FEA.py      # Main solver
 ├── README.md
 └── examples/
     └── sample_output.png
@@ -121,7 +121,6 @@ fea-1d-bar/
 
 - [ ] Multi-material bars (piecewise E, A)
 - [ ] Distributed axial loads (body forces)
-- [ ] Thermal loading
 - [ ] 2D truss solver (next step toward full FEM)
 - [ ] Streamlit/web interface for interactive parameter input
 
@@ -136,7 +135,3 @@ This project is part of my systematic study of computational mechanics. Parallel
 The goal: deep enough understanding to design and validate aerospace/defence structures without the black box.
 
 ---
-
-## License
-
-MIT
