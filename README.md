@@ -112,6 +112,7 @@ fea-1d-bar/
 └── examples/
     └── sample_output.png
 ├── 1D_FEA.py      # Main solver
+├── LICENSE.md
 ├── README.md
 ```
 
