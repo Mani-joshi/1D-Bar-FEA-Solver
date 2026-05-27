@@ -108,7 +108,7 @@ The contour plot renders the displacement field across the bar cross-section usi
 ## File Structure
 
 ```
-fea-1d-bar/
+1D-Bar-FEA-Solver
 └── examples/
     └── sample_output.png
 ├── 1D_FEA.py      # Main solver
